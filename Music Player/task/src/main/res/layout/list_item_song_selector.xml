@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="songSelector"
+            type="org.hyperskill.musicplayer.models.SongSelector" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <CheckBox
+            android:id="@+id/songSelectorItemCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:checked="@{songSelector.isSelected}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/songSelectorItemTvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{songSelector.song.duration_st}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/songSelectorItemTvArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{songSelector.song.artist}"
+            app:layout_constraintBottom_toTopOf="@id/songSelectorItemTvTitle"
+            app:layout_constraintEnd_toStartOf="@id/songSelectorItemTvDuration"
+            app:layout_constraintStart_toEndOf="@id/songSelectorItemCheckBox"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/songSelectorItemTvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{songSelector.song.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/songSelectorItemTvDuration"
+            app:layout_constraintStart_toEndOf="@id/songSelectorItemCheckBox"
+            app:layout_constraintTop_toBottomOf="@id/songSelectorItemTvArtist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

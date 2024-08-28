@@ -1,0 +1,42 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+  id 'kotlin-kapt'
+}
+
+android {
+  compileSdk 34
+
+  defaultConfig {
+
+    namespace 'org.hyperskill.musicplayer'
+    applicationId "org.hyperskill.musicplayer"
+    minSdkVersion hs.android.minSdkVersion
+    targetSdkVersion hs.android.targetSdkVersion
+    versionCode 1
+    versionName '1.0'
+  }
+
+  buildFeatures {
+    dataBinding true
+  }
+}
+
+dependencies {
+
+
+  def kotlinVersion = hs.android.kotlinVersion
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+  def coreKtx = hs.android.lib.coreKtx
+  implementation "androidx.core:core-ktx:$coreKtx"
+
+  def appCompat = hs.android.lib.appCompat
+  implementation "androidx.appcompat:appcompat:$appCompat"
+
+  def constraintLayout = hs.android.lib.constraintLayout
+  implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
+
+  def material = hs.android.lib.material
+  implementation "com.google.android.material:material:$material"
+}
